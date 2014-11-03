@@ -1,0 +1,21 @@
+<h1> Welcome! </h1>
+
+<% if current_user %>
+You are logged in as <% current_user.name %>.
+Sign out.
+
+<% else %>
+
+<section>
+
+    You are not currently logged in. Please log in!
+
+    <%= bootstrap_form_tag do %>
+
+      <%= text_field :name, user[name] %>
+      <%= password_field_tag :password %>
+      <%= submit_tag "Log In" %>
+    <% end %>
+</section>
+
+Or Create an Account
