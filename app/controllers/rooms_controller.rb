@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
     render :show
   end
 
-  def add_item
+  def add_path
     @room = Room.find(params[:id])
     @path = Path.new
     render :show

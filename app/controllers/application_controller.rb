@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def path_destination(path)
+    Room.find(path.destination)
+  end
+  helper_method :path_destination
+
   def reverse_direction(direction)
     case direction
     when "north"
