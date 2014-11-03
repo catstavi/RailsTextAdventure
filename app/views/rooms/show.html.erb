@@ -22,7 +22,8 @@
   <h3> Paths </h3>
     <% @room.paths.each do |path| %>
       <div>
-        <%= path.direction %>: <%= link_to path_destination(path).name, path_destination(path) %>
+        <%= path.direction %>:
+        <%= link_to path_destination(path).name, path_destination(path) %>
       </div>
     <% end %>
 </section>
@@ -32,7 +33,7 @@
     <%= bootstrap_form_for @path, url: new_path_path do |f| %>
       <%= f.hidden_field :room_id, value: @room.id %>
       <%= f.text_field :direction %>
-      <%= f.text_field :destination %>
+      <%= f.collection_select :destination, @room.map.rooms, :id, :name %>
       <%= f.submit %>
     <% end %>
 

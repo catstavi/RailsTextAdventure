@@ -11,6 +11,8 @@ class PathsController < ApplicationController
     end
   end
 
+  #maybe allow user to select if path is one-way or two-way (checkbox?)
+
   def matching_path(path1)
     direction = reverse_direction(path1.direction)
     destination = path1.room_id
