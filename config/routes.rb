@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  post "/",           to: 'pages#login',    as: login
+  post "/",              to: 'users#login',     as: :login
+  get "/users/new",      to: 'users#new',       as: :new_user
   root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

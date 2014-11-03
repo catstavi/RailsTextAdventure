@@ -11,11 +11,14 @@ Sign out.
     You are not currently logged in. Please log in!
 
     <%= bootstrap_form_tag do %>
-
-      <%= text_field :name, user[name] %>
+      <%= label_tag :username %>
+      <%= text_field_tag :name %>
+      <%= label_tag :password %>
       <%= password_field_tag :password %>
       <%= submit_tag "Log In" %>
     <% end %>
 </section>
 
-Or Create an Account
+<% button_to "Create an Account", sign_up_path, method: get %>
+
+<% end %>
