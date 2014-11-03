@@ -1,0 +1,13 @@
+<h1> Create A New Map </h1>
+
+<%= bootstrap_form_for @map, url: new_map_path do |f| %> <!-- form_for user model -->
+   <%= f.hidden_field :user_id, value: current_user.id %>
+
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.text_area :desc %>
+      </div>
+    <div class="actions"><%= f.submit  %></div>
+<% end %>

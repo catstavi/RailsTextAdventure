@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103013808) do
+ActiveRecord::Schema.define(version: 20141103035651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141103013808) do
     t.text     "desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "players", force: true do |t|
@@ -45,6 +46,8 @@ ActiveRecord::Schema.define(version: 20141103013808) do
     t.integer  "health"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "room_id"
+    t.integer  "user_id"
   end
 
   create_table "rooms", force: true do |t|
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(version: 20141103013808) do
     t.text     "full_desc"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "map_id"
   end
 
   create_table "users", force: true do |t|

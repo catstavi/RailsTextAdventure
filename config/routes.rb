@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   post "/users/new",     to: 'users#create'
   get "/dash",           to: 'users#show',          as: :my_account
 
-  get "/maps/new",       to: 'maps#new',            as: :new_map
+  resources :maps
+  resources :rooms
+  resources :items
+  # get "/maps/new",       to: 'maps#new',            as: :new_map
+  # post "maps/new",       to: 'maps#create'
 
   root 'pages#home'
 

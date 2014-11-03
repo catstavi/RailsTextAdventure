@@ -1,9 +1,9 @@
-<%= current_user.name %>'s Account
+<h1> <%= current_user.name %>'s Account </h1>
 
 <% unless current_user.maps.empty? %>
-  My Maps:
+  <h2>My Maps:</h2>
   <% current_user.maps.each do |map| %>
-    <% map.name %>
+    <%=button_to map.name, map, method: :get %>
   <% end %>
 <% else %>
   You don't have any maps yet :(
