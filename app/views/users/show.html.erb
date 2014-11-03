@@ -1,0 +1,12 @@
+<%= current_user.name %>'s Account
+
+<% unless current_user.maps.empty? %>
+  My Maps:
+  <% current_user.maps.each do |map| %>
+    <% map.name %>
+  <% end %>
+<% else %>
+  You don't have any maps yet :(
+
+<% end %>
+<%= button_to "Create a New Map", new_map_path, method: :get %>

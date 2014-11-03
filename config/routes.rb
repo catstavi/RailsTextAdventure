@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
-  post "/",              to: 'users#login',     as: :login
-  get "/users/new",      to: 'users#new',       as: :new_user
+  post "/login",         to: 'sessions#create',     as: :login
+  post "/logout",        to: 'sessions#destroy',    as: :logout
+
+  get "/users/new",      to: 'users#new',           as: :new_user
+  post "/users/new",     to: 'users#create'
+  get "/dash",           to: 'users#show',          as: :my_account
+
+  get "/maps/new",       to: 'maps#new',            as: :new_map
+
   root 'pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,8 +1,8 @@
 <h1> Welcome! </h1>
 
 <% if current_user %>
-You are logged in as <% current_user.name %>.
-Sign out.
+You are logged in as <%= current_user.name %>.
+<%= button_to "Log out", logout_path %>
 
 <% else %>
 
@@ -10,15 +10,14 @@ Sign out.
 
     You are not currently logged in. Please log in!
 
-    <%= bootstrap_form_tag do %>
-      <%= label_tag :username %>
-      <%= text_field_tag :name %>
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
-      <%= submit_tag "Log In" %>
+    <%= bootstrap_form_tag url: login_path do |f| %>
+    <%= f.text_field :name %>
+    <%= f.password_field :password %>
+    <%= f.submit "Log In" %>
+
     <% end %>
 </section>
 
-<% button_to "Create an Account", sign_up_path, method: get %>
+<%= button_to "Create an Account", new_user_path, method: :get %>
 
 <% end %>

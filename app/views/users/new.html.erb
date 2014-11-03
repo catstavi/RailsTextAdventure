@@ -1,19 +1,15 @@
 <h1> Create An Account </h1>
 
-<%= form_for @user do |f| %> <!-- form_for user model -->
-  <%= error_message(@user) %>
+<%= bootstrap_form_for @user, url: new_user_path do |f| %> <!-- form_for user model -->
 
       <div class="field">
-        <%= f.label :username %><br />
         <%= f.text_field :name %>
       </div>
       <div class="field">
-        <%= f.label :password %><br />
         <%= f.password_field :password %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation %>
       </div>
-    <div class="actions"><%= f.submit %></div>
+    <div class="actions"><%= f.submit  %></div>
 <% end %>
