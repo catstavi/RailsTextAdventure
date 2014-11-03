@@ -17,6 +17,18 @@ class MapsController < ApplicationController
     @map = Map.find(params[:id])
   end
 
+  def add_room
+    @map = Map.find(params[:id])
+    @room = Room.new
+    render :show
+  end
+
+  def add_item
+    @map = Map.find(params[:id])
+    @item = Item.new
+    render :show
+  end
+
   private
 
   def map_params

@@ -4,6 +4,40 @@
 <section>
   <%= @map.desc %>
 </section>
+<% if @room %>
+  <%= bootstrap_form_for @room, url: new_room_path do |f| %> <!-- form_for user model -->
+     <%= f.hidden_field :map_id, value: @map.id %>
 
-<%= button_to "Add a Room", new_room_path, method: :get %>
+        <div class="field">
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.text_field :short_desc %>
+        </div>
+        <div class="field">
+          <%= f.text_area :full_desc %>
+        </div>
+      <div class="actions"><%= f.submit  %></div>
+  <% end %>
+<% else %>
+  <%= button_to "Add a Room", new_room_path, method: :get %>
+<% end %>
+
+<% if @item %>
+  <%= bootstrap_form_for @item, url: new_item_path do |f| %> <!-- form_for user model -->
+     <%= f.hidden_field :inventory_id, value: @map.id %>
+     <%= f.hidden_field :inventory_type, value: "Room" %>
+
+        <div class="field">
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.text_field :short_desc %>
+        </div>
+        <div class="field">
+          <%= f.text_area :full_desc %>
+        </div>
+      <div class="actions"><%= f.submit  %></div>
+  <% end %>
+<% else %>
 <%= button_to "Add an Item", new_item_path, method: :get %>
