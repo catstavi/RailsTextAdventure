@@ -14,6 +14,19 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
   end
 
+  def add_item
+    @room = Room.find(params[:id])
+    @item = Item.new
+    render :show
+  end
+
+  def add_item
+    @room = Room.find(params[:id])
+    @path = Path.new
+    render :show
+  end
+
+
   private
 
   def room_params

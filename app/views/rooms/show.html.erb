@@ -1,0 +1,51 @@
+
+<h1><%= @room.name %> </h1>
+
+<section>
+  Description: <%= @room.full_desc %>
+</section>
+
+<section>
+  Map: <%=link_to @room.map.name, @room.map %>
+</section>
+
+<section>
+  <h3> Items </h3>
+    <% @room.items.each do |item| %>
+      <div class = "item-link">
+        <%= link_to item.name, item %>
+      </div>
+    <% end %>
+</section>
+
+<section>
+  <% if @path %>
+    <%= bootstrap_form_for @path, url: new_path_path do |f| %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+    <% end %>
+
+  <% else %>
+    <%= button_to "Add a Path" %>
+  <% end %>
+  
+</section>
+
+<section>
+
+  <% if @item %>
+    <%= bootstrap_form_for @item, url: new_item_path do |f| %>
+       <%= f.hidden_field :inventory_id, value: @room.id %>
+       <%= f.hidden_field :inventory_type, value: "Room" %>
+
+          <div class="field">
+            <%= f.text_field :name %>
+          </div>
+          <div class="field">
+            <%= f.text_area :desc %>
+          </div>
+        <div class="actions"><%= f.submit  %></div>
+    <% end %>
+  <% else %>
+    <%= button_to "Add an Item", new_item_path, method: :get %>
+  <% end %>
+</section>

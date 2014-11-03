@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get "maps/:id/add_room",   to: 'maps#add_room',  as: :new_room
   post "maps/:id/add_room",   to: 'rooms#create'
 
-  get "maps/:id/add_item",   to: 'maps#add_item',  as: :new_item
-  post "maps/:id/add_item",   to: 'items#create'
+  get "rooms/:id/add_item",   to: 'rooms#add_item',  as: :new_item
+  post "rooms/:id/add_item",   to: 'items#create'
+  get "rooms/:id/add_path",   to: 'rooms#add_path',  as: :new_path
+  post "rooms/:id/add_path",   to: 'paths#create'
 
   resources :maps
   resources :rooms

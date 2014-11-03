@@ -23,12 +23,6 @@ class MapsController < ApplicationController
     render :show
   end
 
-  def add_item
-    @map = Map.find(params[:id])
-    @item = Item.new
-    render :show
-  end
-
   private
 
   def map_params
